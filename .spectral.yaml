@@ -1,4 +1,5 @@
 extends: [[spectral:oas, off]]
+documentationUrl: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets
 rules:
   duplicated-entry-in-enum: true
   no-eval-in-markdown: true
@@ -10,3 +11,11 @@ rules:
   path-params: true
   typed-enum: true
   oas3-schema: true
+  unexpected-error-default-response:
+    description: "Endpoints must return a default response"
+    message: "{{description}}"
+    severity: warn
+    given: $.paths..responses
+    then:
+      - field: "default"
+        function: truthy
