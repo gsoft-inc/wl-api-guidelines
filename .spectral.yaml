@@ -26,6 +26,20 @@ rules:
           -  multipart/form-data
           -  application/octet-stream
 
+  must-return-content-types:
+    description: "All enpoint bodies MUST return the header with (one of) Content-Type: application/json, image/png, application/octet-stream"
+    message: "{{description}}"
+    severity: warn
+    given: $.paths[*].*.responses.*.content
+    then:
+      field: "@key"
+      function: enumeration
+      functionOptions:
+        values:
+          -  application/json
+          -  image/png
+          -  application/octet-stream          
+
   unexpected-error-default-response:
     description: "All endpoints must return a default response"
     message: "{{description}}"
