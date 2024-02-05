@@ -50,7 +50,7 @@ rules:
         function: truthy
   
   schema-ids-must-have-alphanumeric-characters-only:
-    description: 'Enforce only alphanumeric characters in schema ids.'
+    description: 'All schema ids must only contain alphanumeric characters.'
     given: "$.components.schemas"
     severity: error
     then:
