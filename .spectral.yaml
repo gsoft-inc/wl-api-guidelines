@@ -48,3 +48,13 @@ rules:
     then:
       - field: "default"
         function: truthy
+  
+  schema-ids-must-have-alphanumeric-characters-only:
+    description: 'Enforce only alphanumeric characters in schema ids.'
+    given: "$.components.schemas"
+    severity: error
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: '^[a-zA-Z0-9]+$'
