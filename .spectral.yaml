@@ -59,11 +59,20 @@ rules:
       functionOptions:
         match: '^[a-zA-Z0-9]+$'
 
+must-have-security-schemes:  
+    description: "Contract must have a security scheme."  
+    recommended: true  
+    severity: warn  
+    given: $.components  
+    then:  
+      field: securitySchemes  
+      function: truthy 
+
   must-support-client-credentials-oauth2:
     description: "Contract must support client credentials with oauth2."
     recommended: true
     severity: warn
-    given: $.components.securitySchemes.ClientCredentials
+    given: $.components.securitySchemes.*
     then:
       field: type
       function: enumeration
