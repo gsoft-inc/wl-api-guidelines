@@ -1,0 +1,25 @@
+openapi: 3.0.1
+info:
+  title: V1 API General
+  version: v1
+paths:
+  /buy-item:
+    post:
+      tags:
+        - Shop
+      summary: Buy an item
+      operationId: BuyItem
+      requestBody:
+        content:
+          application/invalid-content:
+            schema:
+              required:
+                - itemName
+              type: object
+              properties:
+                itemName:
+                  maxLength: 200
+                  minLength: 1
+                  type: string
+              additionalProperties: false
+        required: true

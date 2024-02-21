@@ -1,0 +1,14 @@
+openapi: 3.0.1
+info:
+  title: dummy
+  paths:
+    /buy-item:
+      post:
+        summary: dummy
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  itemName:
