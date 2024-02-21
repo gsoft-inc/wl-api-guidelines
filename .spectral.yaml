@@ -38,7 +38,7 @@ rules:
         values:
           -  application/json
           -  image/png
-          -  application/octet-stream          
+          -  application/octet-stream
 
   unexpected-error-default-response:
     description: "All endpoints must return a default response."
@@ -48,7 +48,7 @@ rules:
     then:
       - field: "default"
         function: truthy
-  
+
   schema-ids-must-have-alphanumeric-characters-only:
     description: 'All schema ids must only contain alphanumeric characters.'
     given: "$.components.schemas"
@@ -59,14 +59,14 @@ rules:
       functionOptions:
         match: '^[a-zA-Z0-9]+$'
 
-must-have-security-schemes:  
-    description: "Contract must have a security scheme."  
-    recommended: true  
-    severity: warn  
-    given: $.components  
-    then:  
-      field: securitySchemes  
-      function: truthy 
+  must-have-security-schemes:
+    description: "Contract must have a security scheme."
+    recommended: true
+    severity: warn
+    given: $.components
+    then:
+      field: securitySchemes
+      function: truthy
 
   must-support-client-credentials-oauth2:
     description: "Contract must support client credentials with oauth2."
@@ -79,3 +79,21 @@ must-have-security-schemes:
       functionOptions:
         values:
           - oauth2
+
+  properties-must-have-a-type:
+    description: "All properties must have a type."
+    recommended: true
+    severity: warn
+    given: $..properties.*
+    then:
+      field: type
+      function: truthy
+
+  schema-object-must-have-a-type:
+    description: "All properties must have a type."
+    recommended: true
+    severity: warn
+    given: $.components.schemas.*
+    then:
+      field: type
+      function: truthy
