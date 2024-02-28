@@ -8,6 +8,10 @@ spectral --version
 $ruleset = Join-Path $PSScriptRoot ".spectral.yaml"
 
 $tests = @(
+    @{ rule = "application-json-response-must-not-be-type-string"; expectError = $false; filename = "application-json-response-must-not-be-type-string-valid.yaml" },
+    @{ rule = "application-json-response-must-not-be-type-string"; expectError = $true; filename = "application-json-response-must-not-be-type-string-invalid.yaml" },
+    @{ rule = "items-must-have-a-type"; expectError = $false; filename = "items-must-have-a-type-valid.yaml" },
+    @{ rule = "items-must-have-a-type"; expectError = $true; filename = "items-must-have-a-type-invalid.yaml" },
     @{ rule = "must-accept-content-types"; expectError = $false; filename = "must-accept-content-types-valid.yaml" },
     @{ rule = "must-accept-content-types"; expectError = $true; filename = "must-accept-content-types-invalid.yaml" },
     @{ rule = "must-have-security-schemes"; expectError = $false; filename = "must-have-security-schemes-valid.yaml" },
