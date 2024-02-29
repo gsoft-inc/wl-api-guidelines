@@ -108,7 +108,7 @@ rules:
       function: truthy
 
   application-json-response-must-not-be-type-string:
-    description: "Responses of type application/json must not be of type string"
+    description: "Responses of type application/json must not be of type string. Having a type:string as a response causes the client generation to fail."
     recommended: true
     severity: warn
     given: $..responses..content..application/json.schema.*
