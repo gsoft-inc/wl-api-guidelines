@@ -1,0 +1,13 @@
+name: Jira
+
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore: ["*.md"]
+
+jobs:
+  call-workflow-jira:
+    uses: gsoft-inc/wl-renovate-workflow/.github/workflows/reusable-jira-workflow.yml@main
+    with:
+      branch_name: '$'{{ github.head_ref }}
+    secrets: inherit
