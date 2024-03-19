@@ -11,6 +11,8 @@ rules:
   path-params: true
   typed-enum: true
   oas3-schema: true
+  oas3-operation-security-defined: true
+
 
   must-accept-content-types:
     description: "All endpoint bodies MUST accept the header with (one of) Content-Type: application/json, multipart/form-data, application/octet-stream."
@@ -40,15 +42,6 @@ rules:
           -  image/png
           -  application/octet-stream
 
-  unexpected-error-default-response:
-    description: "All endpoints must return a default response."
-    message: "{{description}}"
-    severity: warn
-    given: $.paths..responses
-    then:
-      - field: "default"
-        function: truthy
-
   schema-ids-must-have-alphanumeric-characters-only:
     description: 'All schema ids must only contain alphanumeric characters.'
     given: "$.components.schemas"
@@ -58,15 +51,6 @@ rules:
       function: pattern
       functionOptions:
         match: '^[a-zA-Z0-9]+$'
-
-  must-have-security-schemes:
-    description: "Contract must have a security scheme."
-    recommended: true
-    severity: warn
-    given: $.components
-    then:
-      field: securitySchemes
-      function: truthy
 
   must-support-client-credentials-oauth2:
     description: "Contract must support client credentials with oauth2."
