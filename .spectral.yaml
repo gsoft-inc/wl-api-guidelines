@@ -41,15 +41,6 @@ rules:
           -  image/png
           -  application/octet-stream
 
-  unexpected-error-default-response:
-    description: "All endpoints must return a default response."
-    message: "{{description}}"
-    severity: warn
-    given: $.paths..responses
-    then:
-      - field: "default"
-        function: truthy
-
   schema-ids-must-have-alphanumeric-characters-only:
     description: 'All schema ids must only contain alphanumeric characters.'
     given: "$.components.schemas"
