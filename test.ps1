@@ -66,3 +66,4 @@ foreach ($test in $tests) {
 }
 
 Write-Host -ForegroundColor Green "All tests passed"
+exit 0
