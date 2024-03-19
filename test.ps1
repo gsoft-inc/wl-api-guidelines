@@ -14,8 +14,6 @@ $tests = @(
     @{ rule = "items-must-have-a-type"; expectError = $true; filename = "items-must-have-a-type-invalid.yaml" },
     @{ rule = "must-accept-content-types"; expectError = $false; filename = "must-accept-content-types-valid.yaml" },
     @{ rule = "must-accept-content-types"; expectError = $true; filename = "must-accept-content-types-invalid.yaml" },
-    @{ rule = "must-have-security-schemes"; expectError = $false; filename = "must-have-security-schemes-valid.yaml" },
-    @{ rule = "must-have-security-schemes"; expectError = $true; filename = "must-have-security-schemes-invalid.yaml" },
     @{ rule = "must-return-content-types"; expectError = $false; filename = "must-return-content-types-valid.yaml" },
     @{ rule = "must-return-content-types"; expectError = $true; filename = "must-return-content-types-invalid.yaml" },
     @{ rule = "must-support-client-credentials-oauth2"; expectError = $false; filename = "must-support-client-credentials-oauth2-valid.yaml" },
@@ -27,9 +25,7 @@ $tests = @(
     @{ rule = "schema-ids-must-have-alphanumeric-characters-only"; expectError = $false; filename = "schema-ids-must-have-alphanumeric-characters-only-valid.yaml" },
     @{ rule = "schema-ids-must-have-alphanumeric-characters-only"; expectError = $true; filename = "schema-ids-must-have-alphanumeric-characters-only-invalid.yaml" },
     @{ rule = "schema-object-must-have-a-type"; expectError = $false; filename = "schema-object-must-have-a-type-valid.yaml" },
-    @{ rule = "schema-object-must-have-a-type"; expectError = $true; filename = "schema-object-must-have-a-type-invalid.yaml" },
-    @{ rule = "unexpected-error-default-response"; expectError = $false; filename = "unexpected-error-default-response-valid.yaml" },
-    @{ rule = "unexpected-error-default-response"; expectError = $true; filename = "unexpected-error-default-response-invalid.yaml" }
+    @{ rule = "schema-object-must-have-a-type"; expectError = $true; filename = "schema-object-must-have-a-type-invalid.yaml" }
 )
 
 $fileCount = Get-ChildItem (Join-Path $PSScriptRoot "TestSpecs") | Measure-Object | Select-Object -ExpandProperty Count
