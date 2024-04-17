@@ -5,6 +5,8 @@ rules:
   no-eval-in-markdown: true
   no-script-tags-in-markdown: true
   openapi-tags-uniqueness: true
+  operation-operationId: true
+  operation-operationId-valid-in-url: true
   operation-operationId-unique: true
   operation-success-response: true
   path-keys-no-trailing-slash: true
