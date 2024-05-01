@@ -8,3 +8,7 @@ components:
       properties:
         sampleProperty:
           type: string
+        properties:
+          type: object
+          additionalProperties: { }
+          nullable: true
