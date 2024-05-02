@@ -65,11 +65,20 @@ rules:
         values:
           - oauth2
 
-  properties-must-have-a-type:
-    description: "All properties must have a type."
+  schemas-properties-must-have-a-type:
+    description: "All schemas properties must have a type."
     recommended: true
     severity: warn
-    given: $..properties.*
+    given: $..schemas.*.properties.*
+    then:
+      field: type
+      function: truthy
+
+  path-schema-properties-must-have-a-type:
+    description: "All path schema properties must have a type."
+    recommended: true
+    severity: warn
+    given: $..schema.properties.*
     then:
       field: type
       function: truthy
