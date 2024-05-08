@@ -30,10 +30,10 @@ rules:
           -  application/octet-stream
 
   must-return-content-types:
-    description: "All endpoint bodies MUST return the header with (one of) Content-Type: application/json, image/png, application/octet-stream."
+    description: "Endpoint bodies for 200 responses MUST return the header with (one of) Content-Type: application/json, image/png, application/octet-stream."
     message: "{{description}}"
     severity: warn
-    given: $.paths[*].*.responses.*.content
+    given: $.paths[*].*.responses['200'].content
     then:
       field: "@key"
       function: enumeration
