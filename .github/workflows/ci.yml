@@ -14,3 +14,9 @@ jobs:
       - uses: actions/checkout@v4
       - run: ./test.ps1
         shell: pwsh
+        
+  linearb:
+    uses: gsoft-inc/wl-reusable-workflows/.github/workflows/linearb-deployment.yml@main
+    with:
+      environment: release
+    secrets: inherit
