@@ -26,8 +26,8 @@ $tests = @(
     @{ rule = "schema-ids-must-have-alphanumeric-characters-only"; expectError = $true; filename = "schema-ids-must-have-alphanumeric-characters-only-invalid.yaml" },
     @{ rule = "schema-object-must-have-a-type"; expectError = $false; filename = "schema-object-must-have-a-type-valid.yaml" },
     @{ rule = "schema-object-must-have-a-type"; expectError = $true; filename = "schema-object-must-have-a-type-invalid.yaml" },
-    @{ rule = "schema-name-length"; expectError = $false; filename = "schema-name-length-valid.yaml" },
-    @{ rule = "schema-name-length"; expectError = $true; filename = "schema-name-length-invalid.yaml" }
+    @{ rule = "schema-name-length-must-be-short"; expectError = $false; filename = "schema-name-length-must-be-short-valid.yaml" },
+    @{ rule = "schema-name-length-must-be-short"; expectError = $true; filename = "schema-name-length-must-be-short-invalid.yaml" }
 )
 
 $fileCount = Get-ChildItem (Join-Path $PSScriptRoot "TestSpecs") | Measure-Object | Select-Object -ExpandProperty Count
