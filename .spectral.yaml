@@ -111,3 +111,11 @@ rules:
       function: pattern
       functionOptions:
         notMatch: 'string'
+
+  schema-name-length-must-be-short:
+    description: "Schema name must not be too long to support client generation. Current limitation comes from Ruby packages which uses tar and has a limit of 100 characters."
+    given: $.components.schemas[*]~
+    then:
+      function: length
+      functionOptions:
+        max: 95
