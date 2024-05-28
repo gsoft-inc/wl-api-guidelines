@@ -1,0 +1,16 @@
+openapi: 3.0.1
+info:
+  title: V1 API General
+  version: v1
+servers:
+  - url: https://api.example.com/v1
+paths:
+  /buy-item:
+    post:
+      tags:
+        - Shop
+      summary: Buy an item
+      operationId: BuyItem
+      responses:
+        '200':
+          description: Success

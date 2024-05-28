@@ -108,3 +108,10 @@ rules:
       function: length
       functionOptions:
         max: 95
+
+  must-not-use-base-server-url:
+    description: "Must not use base server url in spec"
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: falsy
