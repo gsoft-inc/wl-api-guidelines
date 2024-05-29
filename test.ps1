@@ -12,6 +12,8 @@ $tests = @(
     @{ rule = "items-must-have-a-type"; expectError = $true; filename = "items-must-have-a-type-invalid.yaml" },
     @{ rule = "must-accept-content-types"; expectError = $false; filename = "must-accept-content-types-valid.yaml" },
     @{ rule = "must-accept-content-types"; expectError = $true; filename = "must-accept-content-types-invalid.yaml" },
+    @{ rule = "must-not-use-base-server-url"; expectError = $false; filename = "must-not-use-base-server-url-valid.yaml" },
+    @{ rule = "must-not-use-base-server-url"; expectError = $true; filename = "must-not-use-base-server-url-invalid.yaml" },
     @{ rule = "must-return-content-types"; expectError = $false; filename = "must-return-content-types-valid.yaml" },
     @{ rule = "must-return-content-types"; expectError = $true; filename = "must-return-content-types-invalid.yaml" },
     @{ rule = "must-support-client-credentials-oauth2"; expectError = $false; filename = "must-support-client-credentials-oauth2-valid.yaml" },
