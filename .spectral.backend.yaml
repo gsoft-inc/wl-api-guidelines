@@ -1,4 +1,4 @@
-extends: [[https://raw.githubusercontent.com/gsoft-inc/wl-api-guidelines/main/.workleap.rules.yaml, , off]]
+extends: [[https://raw.githubusercontent.com/gsoft-inc/wl-api-guidelines/main/.workleap.rules.yaml, off]]
 documentationUrl: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets
 rules:
   duplicated-entry-in-enum: true
