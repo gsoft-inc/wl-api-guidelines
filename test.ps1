@@ -79,8 +79,8 @@ function RunSpectralTests($ruleset, $tests, $testSpecsPath)
     }
 }
 
-RunSpectralTests $rulesetBackend $backendTests "BackendTestSpecs"
-RunSpectralTests $rulesetFrontend $frontendTests "FrontendTestSpecs"
+RunSpectralTests $rulesetBackend $backendTests "TestSpecs/backend"
+RunSpectralTests $rulesetFrontend $frontendTests "TestSpecs/frontend"
 
 Write-Host -ForegroundColor Green "All tests passed"
 
