@@ -104,7 +104,7 @@ rules:
           -  image/png
           -  application/octet-stream
 
-g  must-support-client-credentials-oauth2:
+  must-support-client-credentials-oauth2:
     description: "Contract must support client credentials with oauth2."
     recommended: true
     severity: warn
