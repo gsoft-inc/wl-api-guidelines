@@ -21,7 +21,6 @@ rules:
   items-must-have-a-type: true
   schema-name-length-must-be-short: true
   must-not-use-base-server-url: true
-  must-not-use-basic-auth: true
   # Backend to Backend specific rules
   must-accept-content-types: true
   must-return-content-types: true

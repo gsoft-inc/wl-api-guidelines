@@ -21,6 +21,3 @@ rules:
   items-must-have-a-type: true
   schema-name-length-must-be-short: true
   must-not-use-base-server-url: true
-  must-not-use-basic-auth: true
-  # Backend for Frontend specific rules
-  must-use-supported-security-scheme: true

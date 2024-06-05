@@ -27,11 +27,7 @@ $testSpecs = @(
     @{ rule = "schema-object-must-have-a-type"; expectError = $false; filename = "schema-object-must-have-a-type-valid.yaml" },
     @{ rule = "schema-object-must-have-a-type"; expectError = $true; filename = "schema-object-must-have-a-type-invalid.yaml" },
     @{ rule = "schema-name-length-must-be-short"; expectError = $false; filename = "schema-name-length-must-be-short-valid.yaml" },
-    @{ rule = "schema-name-length-must-be-short"; expectError = $true; filename = "schema-name-length-must-be-short-invalid.yaml" },
-    @{ rule = "must-use-supported-security-scheme"; expectError = $false; filename = "must-use-supported-security-scheme-valid.yaml" },
-    @{ rule = "must-use-supported-security-scheme"; expectError = $true; filename = "must-use-supported-security-scheme-invalid.yaml" },
-    @{ rule = "must-not-use-basic-auth"; expectError = $false; filename = "must-not-use-basic-auth-valid.yaml" },
-    @{ rule = "must-not-use-basic-auth"; expectError = $true; filename = "must-not-use-basic-auth-invalid.yaml" }
+    @{ rule = "schema-name-length-must-be-short"; expectError = $true; filename = "schema-name-length-must-be-short-invalid.yaml" }
 )
 
 function RunSpectralTests($ruleset, $tests, $testSpecsPath)
