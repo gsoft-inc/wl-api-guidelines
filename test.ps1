@@ -30,10 +30,10 @@ $testSpecs = @(
     @{ rule = "schema-name-length-must-be-short"; expectError = $true; filename = "schema-name-length-must-be-short-invalid.yaml" }
 )
 
+
+
 function RunSpectralTests($ruleset, $tests, $testSpecsPath)
 {
-    $PSNativeCommandUseErrorActionPreference = $false
-
     $fileCount = Get-ChildItem (Join-Path $PSScriptRoot $testSpecsPath) | Measure-Object | Select-Object -ExpandProperty Count
     if ($tests.Count -ne $fileCount) {
         throw "Number of tests does not match number of specs. Add the missing specs to the `$tests variable. Files: $fileCount, Tests: $($tests.Count)"
@@ -70,6 +70,8 @@ function RunSpectralTests($ruleset, $tests, $testSpecsPath)
         }
     }
 }
+
+$PSNativeCommandUseErrorActionPreference = $false
 
 RunSpectralTests $ruleset $testSpecs "TestSpecs"
 
