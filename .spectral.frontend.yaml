@@ -1,0 +1,27 @@
+extends: .spectral.yaml
+documentationUrl: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets
+rules:
+  must-use-supported-security-scheme:
+    description: "Contract must support client credentials with oauth2 or bearer."
+    recommended: true
+    severity: warn
+    given: $.components.securitySchemes.*
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values:
+          - oauth2
+          - http
+          - apiKey
+
+  must-not-use-basic-auth:
+    description: "Contract must not use basic auth"
+    recommended: true
+    severity: warn
+    given: $.components.securitySchemes.*
+    then:
+      field: scheme
+      function: pattern
+      functionOptions:
+        notMatch: '^basic$'

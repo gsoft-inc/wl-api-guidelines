@@ -1,0 +1,23 @@
+openapi: 3.0.1
+info:
+  title: V1 API General
+  version: v1
+components:
+  schemas:
+    BuyItemError:
+      type: object
+      properties:
+        message:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://localhost:8000/oauth2/token
+    bearer:
+      type: http
+    cookie-auth:
+      type: apiKey
