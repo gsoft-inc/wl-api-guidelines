@@ -1,42 +1,28 @@
-extends: .spectral.yaml
+extends: [[https://raw.githubusercontent.com/gsoft-inc/wl-api-guidelines/main/.workleap.rules.yaml, , off]]
 documentationUrl: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets
 rules:
-  must-accept-content-types:
-    description: "All endpoint bodies MUST accept the header with (one of) Content-Type: application/json, multipart/form-data, application/octet-stream."
-    message: "{{description}}"
-    severity: warn
-    given: $.paths[*].*.requestBody.content
-    then:
-      field: "@key"
-      function: enumeration
-      functionOptions:
-        values:
-          -  application/json
-          -  multipart/form-data
-          -  application/octet-stream
-
-  must-return-content-types:
-    description: "Endpoint bodies for 200 responses MUST return the header with (one of) Content-Type: application/json, image/png, application/octet-stream."
-    message: "{{description}}"
-    severity: warn
-    given: $.paths[*].*.responses['200'].content
-    then:
-      field: "@key"
-      function: enumeration
-      functionOptions:
-        values:
-          -  application/json
-          -  image/png
-          -  application/octet-stream
-
-  must-support-client-credentials-oauth2:
-    description: "Contract must support client credentials with oauth2."
-    recommended: true
-    severity: warn
-    given: $.components.securitySchemes.*
-    then:
-      field: type
-      function: enumeration
-      functionOptions:
-        values:
-          - oauth2
+  duplicated-entry-in-enum: true
+  no-eval-in-markdown: true
+  no-script-tags-in-markdown: true
+  openapi-tags-uniqueness: true
+  operation-operationId: true
+  operation-operationId-valid-in-url: true
+  operation-operationId-unique: true
+  operation-success-response: true
+  path-keys-no-trailing-slash: true
+  path-params: true
+  typed-enum: true
+  oas3-schema: true
+  oas3-operation-security-defined: true
+  schema-ids-must-have-alphanumeric-characters-only: true
+  schemas-properties-must-have-a-type: true
+  path-schema-properties-must-have-a-type: true
+  schema-object-must-have-a-type: true
+  items-must-have-a-type: true
+  schema-name-length-must-be-short: true
+  must-not-use-base-server-url: true
+  must-not-use-basic-auth: true
+  # Backend to Backend specific rules
+  must-accept-content-types: true
+  must-return-content-types: true
+  must-support-client-credentials-oauth2: true

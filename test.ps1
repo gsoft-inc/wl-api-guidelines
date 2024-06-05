@@ -5,10 +5,9 @@ $PSNativeCommandUseErrorActionPreference = $true
 npm install --global @stoplight/spectral-cli
 spectral --version
 
-$rulesetBackend = Join-Path $PSScriptRoot ".spectral.backend.yaml"
-$rulesetFrontend = Join-Path $PSScriptRoot ".spectral.frontend.yaml"
+$ruleset = Join-Path $PSScriptRoot ".workleap.rules.yaml"
 
-$backendTests = @(
+$testSpecs = @(
     @{ rule = "items-must-have-a-type"; expectError = $false; filename = "items-must-have-a-type-valid.yaml" },
     @{ rule = "items-must-have-a-type"; expectError = $true; filename = "items-must-have-a-type-invalid.yaml" },
     @{ rule = "must-accept-content-types"; expectError = $false; filename = "must-accept-content-types-valid.yaml" },
@@ -28,10 +27,7 @@ $backendTests = @(
     @{ rule = "schema-object-must-have-a-type"; expectError = $false; filename = "schema-object-must-have-a-type-valid.yaml" },
     @{ rule = "schema-object-must-have-a-type"; expectError = $true; filename = "schema-object-must-have-a-type-invalid.yaml" },
     @{ rule = "schema-name-length-must-be-short"; expectError = $false; filename = "schema-name-length-must-be-short-valid.yaml" },
-    @{ rule = "schema-name-length-must-be-short"; expectError = $true; filename = "schema-name-length-must-be-short-invalid.yaml" }
-)
-
-$frontendTests = @(
+    @{ rule = "schema-name-length-must-be-short"; expectError = $true; filename = "schema-name-length-must-be-short-invalid.yaml" },
     @{ rule = "must-use-supported-security-scheme"; expectError = $false; filename = "must-use-supported-security-scheme-valid.yaml" },
     @{ rule = "must-use-supported-security-scheme"; expectError = $true; filename = "must-use-supported-security-scheme-invalid.yaml" },
     @{ rule = "must-not-use-basic-auth"; expectError = $false; filename = "must-not-use-basic-auth-valid.yaml" },
@@ -79,8 +75,7 @@ function RunSpectralTests($ruleset, $tests, $testSpecsPath)
     }
 }
 
-RunSpectralTests $rulesetBackend $backendTests "TestSpecs/backend"
-RunSpectralTests $rulesetFrontend $frontendTests "TestSpecs/frontend"
+RunSpectralTests $ruleset $testSpecs "TestSpecs"
 
 Write-Host -ForegroundColor Green "All tests passed"
 

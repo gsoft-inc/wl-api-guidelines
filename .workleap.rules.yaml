@@ -75,3 +75,72 @@ rules:
     given: $.servers[*].url
     then:
       function: falsy
+
+  must-not-use-basic-auth:
+    description: "Contract must not use basic auth"
+    recommended: true
+    severity: warn
+    given: $.components.securitySchemes.*
+    then:
+      field: scheme
+      function: pattern
+      functionOptions:
+        notMatch: '^basic$'
+
+  # Backend to Backend specific rule
+  must-accept-content-types:
+    description: "All endpoint bodies MUST accept the header with (one of) Content-Type: application/json, multipart/form-data, application/octet-stream."
+    message: "{{description}}"
+    severity: warn
+    given: $.paths[*].*.requestBody.content
+    then:
+      field: "@key"
+      function: enumeration
+      functionOptions:
+        values:
+          -  application/json
+          -  multipart/form-data
+          -  application/octet-stream
+
+# Backend to Backend specific rule
+  must-return-content-types:
+    description: "Endpoint bodies for 200 responses MUST return the header with (one of) Content-Type: application/json, image/png, application/octet-stream."
+    message: "{{description}}"
+    severity: warn
+    given: $.paths[*].*.responses['200'].content
+    then:
+      field: "@key"
+      function: enumeration
+      functionOptions:
+        values:
+          -  application/json
+          -  image/png
+          -  application/octet-stream
+
+  # Backend to Backend specific rule
+  must-support-client-credentials-oauth2:
+    description: "Contract must support client credentials with oauth2."
+    recommended: true
+    severity: warn
+    given: $.components.securitySchemes.*
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values:
+          - oauth2
+
+  # Backend for Frontend specific rule
+  must-use-supported-security-scheme:
+    description: "Contract must support client credentials with oauth2 or bearer."
+    recommended: true
+    severity: warn
+    given: $.components.securitySchemes.*
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values:
+          - oauth2
+          - http
+          - apiKey
