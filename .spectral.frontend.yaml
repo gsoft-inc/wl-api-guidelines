@@ -1,0 +1,23 @@
+extends: [[https://raw.githubusercontent.com/gsoft-inc/wl-api-guidelines/main/.workleap.rules.yaml, off]]
+documentationUrl: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets
+rules:
+  duplicated-entry-in-enum: true
+  no-eval-in-markdown: true
+  no-script-tags-in-markdown: true
+  openapi-tags-uniqueness: true
+  operation-operationId: true
+  operation-operationId-valid-in-url: true
+  operation-operationId-unique: true
+  operation-success-response: true
+  path-keys-no-trailing-slash: true
+  path-params: true
+  typed-enum: true
+  oas3-schema: true
+  oas3-operation-security-defined: true
+  schema-ids-must-have-alphanumeric-characters-only: true
+  schemas-properties-must-have-a-type: true
+  path-schema-properties-must-have-a-type: true
+  schema-object-must-have-a-type: true
+  items-must-have-a-type: true
+  schema-name-length-must-be-short: true
+  must-not-use-base-server-url: true
