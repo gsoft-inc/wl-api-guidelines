@@ -18,6 +18,8 @@ $testSpecs = @(
     @{ rule = "must-return-content-types"; expectError = $true; filename = "must-return-content-types-invalid.yaml" },
     @{ rule = "must-support-client-credentials-oauth2"; expectError = $false; filename = "must-support-client-credentials-oauth2-valid.yaml" },
     @{ rule = "must-support-client-credentials-oauth2"; expectError = $true; filename = "must-support-client-credentials-oauth2-invalid.yaml" },
+    @{ rule = "must-use-get-post-methods"; expectError = $false; filename = "must-use-get-post-methods-valid.yaml" },
+    @{ rule = "must-use-get-post-methods"; expectError = $true; filename = "must-use-get-post-methods-invalid.yaml" },
     @{ rule = "path-schema-properties-must-have-a-type"; expectError = $false; filename = "path-schema-properties-must-have-a-type-valid.yaml" },
     @{ rule = "path-schema-properties-must-have-a-type"; expectError = $true; filename = "path-schema-properties-must-have-a-type-invalid.yaml" },
     @{ rule = "schemas-properties-must-have-a-type"; expectError = $false; filename = "schemas-properties-must-have-a-type-valid.yaml" },
@@ -29,8 +31,6 @@ $testSpecs = @(
     @{ rule = "schema-name-length-must-be-short"; expectError = $false; filename = "schema-name-length-must-be-short-valid.yaml" },
     @{ rule = "schema-name-length-must-be-short"; expectError = $true; filename = "schema-name-length-must-be-short-invalid.yaml" }
 )
-
-
 
 function RunSpectralTests($ruleset, $tests, $testSpecsPath)
 {
