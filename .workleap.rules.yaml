@@ -115,3 +115,16 @@ rules:
       functionOptions:
         values:
           - oauth2
+
+  must-use-get-post-methods:
+    description: "BFF API endpoints must only use GET or POST methods."
+    recommended: true
+    severity: error
+    given: $.paths[*]
+    then:
+      field: "@key"
+      function: enumeration
+      functionOptions:
+        values:
+          - get
+          - post

@@ -1,0 +1,23 @@
+openapi: 3.0.1
+info:
+  title: V1 API General
+  version: v1
+paths:
+  /buy-item:
+    post:
+      tags:
+        - Shop
+      summary: Buy an item
+      operationId: BuyItem
+      responses:
+        '200':
+          description: Success
+  /find-item:
+    get:
+      tags:
+        - Shop
+      summary: Find an item
+      operationId: FindItem
+      responses:
+        '200':
+          description: Success

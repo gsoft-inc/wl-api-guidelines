@@ -21,3 +21,4 @@ rules:
   items-must-have-a-type: true
   schema-name-length-must-be-short: true
   must-not-use-base-server-url: true
+  must-use-rpc-style-endpoints: true

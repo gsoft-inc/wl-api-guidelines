@@ -1,0 +1,23 @@
+openapi: 3.0.1
+info:
+  title: V1 API General
+  version: v1
+paths:
+  /delete-item:
+    delete:
+      tags:
+        - Shop
+      summary: Delete an item
+      operationId: DeleteItem
+      responses:
+        '200':
+          description: Success
+  /update-item:
+    update:
+      tags:
+        - Shop
+      summary: Update an item
+      operationId: UpdateItem
+      responses:
+        '200':
+          description: Success
