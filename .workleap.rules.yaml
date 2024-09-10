@@ -16,7 +16,7 @@ rules:
   oas3-operation-security-defined: true
 
   schema-ids-must-have-alphanumeric-characters-only:
-    description: 'All schema ids must only contain alphanumeric characters.'
+    description: 'All schema ids must only contain alphanumeric characters. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#schema-ids-must-have-alphanumeric-characters-only'
     given: "$.components.schemas"
     severity: error
     then:
@@ -26,7 +26,7 @@ rules:
         match: '^[a-zA-Z0-9]+$'
 
   schemas-properties-must-have-a-type:
-    description: "All schemas properties must have a type."
+    description: "All schemas properties must have a type. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#schemas-properties-must-have-a-type-and-path-schema-properties-must-have-a-type"
     recommended: true
     severity: warn
     given: $..schemas.*.properties.*
@@ -35,7 +35,7 @@ rules:
       function: truthy
 
   path-schema-properties-must-have-a-type:
-    description: "All path schema properties must have a type."
+    description: "All path schema properties must have a type. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#schemas-properties-must-have-a-type-and-path-schema-properties-must-have-a-type"
     recommended: true
     severity: warn
     given: $..schema.properties.*
@@ -44,7 +44,7 @@ rules:
       function: truthy
 
   schema-object-must-have-a-type:
-    description: "All properties must have a type."
+    description: "All properties must have a type. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#schema-object-must-have-a-type"
     recommended: true
     severity: warn
     given: $.components.schemas.*
@@ -53,7 +53,7 @@ rules:
       function: truthy
 
   items-must-have-a-type:
-    description: "All items must have a type."
+    description: "All items must have a type. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#items-must-have-a-type"
     recommended: true
     severity: warn
     given: $.components.schemas..items
@@ -62,7 +62,7 @@ rules:
       function: truthy
 
   schema-name-length-must-be-short:
-    description: "Schema name must not be too long to support client generation. Current limitation comes from Ruby packages which uses tar and has a limit of 100 characters."
+    description: "Schema name must not be too long to support client generation. Current limitation comes from Ruby packages which uses tar and has a limit of 100 characters. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#schema-name-length-must-be-short"
     given: $.components.schemas[*]~
     then:
       function: length
@@ -70,14 +70,14 @@ rules:
         max: 95
 
   must-not-use-base-server-url:
-    description: "Must not use base server url in spec to be able to generate a single client compatible with multiple environments."
+    description: "Must not use base server url in spec to be able to generate a single client compatible with multiple environments. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#must-not-use-base-server-url"
     severity: warn
     given: $.servers[*].url
     then:
       function: falsy
 
   must-accept-content-types:
-    description: "All endpoint bodies MUST accept the header with (one of) Content-Type: application/json, multipart/form-data, application/octet-stream."
+    description: "All endpoint bodies MUST accept the header with (one of) Content-Type: application/json, multipart/form-data, application/octet-stream. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#must-accept-content-types"
     message: "{{description}}"
     severity: warn
     given: $.paths[*].*.requestBody.content
@@ -91,7 +91,7 @@ rules:
           -  application/octet-stream
 
   must-return-content-types:
-    description: "Endpoint bodies for 200 responses MUST return the header with (one of) Content-Type: application/json, image/png, application/octet-stream."
+    description: "Endpoint bodies for 200 responses MUST return the header with (one of) Content-Type: application/json, image/png, application/octet-stream. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#must-return-content-types"
     message: "{{description}}"
     severity: warn
     given: $.paths[*].*.responses['200'].content
@@ -105,7 +105,7 @@ rules:
           -  application/octet-stream
 
   must-support-client-credentials-oauth2:
-    description: "Contract must support client credentials with oauth2."
+    description: "Contract must support client credentials with oauth2. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#must-support-client-credentials-oauth2"
     recommended: true
     severity: warn
     given: $.components.securitySchemes.*
@@ -117,7 +117,7 @@ rules:
           - oauth2
 
   must-use-get-post-methods:
-    description: "BFF API endpoints must only use GET or POST methods."
+    description: "BFF API endpoints must only use GET or POST methods. Refer to: https://gsoftdev.atlassian.net/wiki/spaces/TEC/pages/3858235678/IDP+OpenAPI+Rulesets#must-use-get-post-methods"
     recommended: true
     severity: error
     given: $.paths[*]
