@@ -8,7 +8,7 @@ info:
       alias: gsoft-inc
       repository: gsoft-inc/wl-api-guidelines
   x-cortex-tag: service-wl-api-guidelines
-  x-cortex-type: service
+  x-cortex-type: other
   x-cortex-slack:
     channels:
     - name: internal-dev-platform
@@ -19,6 +19,6 @@ info:
     provider: CORTEX
   x-cortex-link:
   - type: cortex
-    url: https://github.com/gsoft-inc/cortex-gitops/blob/main/.cortex/catalog/service-wl-api-guidelines.yaml
+    url: https://github.com/gsoft-inc/wl-api-guidelines/blob/main/.cortex/catalog/service-wl-api-guidelines.yaml
     name: Edit current Cortex entity in GitHub
 
