@@ -2,7 +2,7 @@
 
 openapi: 3.0.1
 info:
-  title: Workleap Api Guildelines
+  title: Workleap Api Guidelines
   description: Workleap spectral ruleset for an API.
   x-cortex-git:
     github:
